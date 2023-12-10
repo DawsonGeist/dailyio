@@ -1,3 +1,17 @@
+# Dev Notes
+Personal Assistant application to help me remember Upcoming Responsibilities, Day-to-Day operations such as grocery shopping, Up-Coming events, and social gatherings. 
+
+Required Packages:
+Front End:
+bootstrap
+
+Backend:
+express
+coors
+mongoose
+nodemon
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
