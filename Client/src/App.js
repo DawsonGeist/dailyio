@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/js/bootstrap.bundle'; // This fixed the issue with dropdowns?
+import './styles.css'
+
+import SideBar from './Components/SideBar';
+import Home from './Pages/Home';
+
+const GetPageContent = () => {
+  const state = localStorage.getItem("state")
+  if (state == null) {
+    console.log("state is null")
+    return (
+      <div className='sidebar-content-container'>
+        <SideBar/>
+        <Home/>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className='sidebar-content-container'>
+        <SideBar/>
+        <p>Error Occured with state</p>
+      </div>
+    );
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="App">{GetPageContent()}</div>
   );
 }
 
