@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle'; // This fixed the issue with dropdowns?
 import '../styles.css'
 
+import NotesPreviewContainer from '../Components/NotesPreviewContainer';
+
 const Home = () => {
     return (
         <div className='page-container'>
@@ -22,6 +24,7 @@ const Home = () => {
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
             </div>
+            <NotesPreviewContainer/>
         </div>
     )
 }
