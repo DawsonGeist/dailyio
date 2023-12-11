@@ -5,11 +5,20 @@ import 'bootstrap/dist/js/bootstrap.bundle'; // This fixed the issue with dropdo
 import '../styles.css'
 
 const highlightTab = (selectedTab, hoveringTab, currentTabName) => {
-    var classname = "nav-link text-white"
+    //class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" 
+    var classname = "nav-link text-white btn-toggle"
     if(hoveringTab === currentTabName || selectedTab === currentTabName) {
         classname = `${classname} active`
     }
     return classname
+}
+
+const autoCloseList = (currentTab, selectedTab) => {
+    var collapse = `collapsing`
+    if(currentTab == selectedTab) {
+        collapse = `${collapse} show`
+    }
+    return collapse
 }
 
 const SideBar = () => {
@@ -25,13 +34,13 @@ const SideBar = () => {
     })
 
     return (
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{width: "280px", height: "100vh"}}>
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark" style={{width: "280px", height: "100vh"}}>
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"></svg>
                 <span class="fs-4">Test App</span>
             </a>
             <hr/>
-            <ul class="nav nav-pills flex-column mb-auto">
+            <ul class="nav nav-pills flex-column mb-auto list-unstyled bg-dark ps-0">
                 <li class="nav-item">
                     <a href="#" class={highlightTab(selectedTab, hoveringTab, "home")} aria-current="page" 
                     onMouseEnter={(event) => {
@@ -51,25 +60,12 @@ const SideBar = () => {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "notes")} aria-current="page" 
-                    onMouseEnter={(event) => {
-                        setHoveringTab('notes')
-                        setUpdatePage(true)
-                    }}
-                    onMouseLeave={(event) => {
-                        setHoveringTab('none')
-                        setUpdatePage(true)
-                    }}
-                    onClick={(event) => {
-                        setSelectedTab('notes')
-                        setUpdatePage(true)
-                    }}>
-                    <svg class="bi me-2" width="16" height="16"></svg>
-                    Notes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "projects")} aria-current="page" 
+                    <a href="#" 
+                    id="btn-projects-collapse" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#projects-collapse" 
+                    role="button"
+                    class={highlightTab(selectedTab, hoveringTab, "projects")} aria-current="page" 
                     onMouseEnter={(event) => {
                         setHoveringTab('projects')
                         setUpdatePage(true)
@@ -85,9 +81,22 @@ const SideBar = () => {
                     <svg class="bi me-2" width="16" height="16"></svg>
                     Projects
                     </a>
+                    
+                    <div class={autoCloseList("projects", selectedTab)} id="projects-collapse">
+                        <ul class="list-unstyled fw-normal pb-1 small">
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Overview</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Project</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Task</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "finances")} aria-current="page" 
+                    <a href="#" 
+                    id="btn-finances-collapse" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#finances-collapse" 
+                    role="button"
+                    class={highlightTab(selectedTab, hoveringTab, "finances")} aria-current="page" 
                     onMouseEnter={(event) => {
                         setHoveringTab('finances')
                         setUpdatePage(true)
@@ -103,9 +112,22 @@ const SideBar = () => {
                     <svg class="bi me-2" width="16" height="16"></svg>
                     Finances
                     </a>
+                    
+                    <div class={autoCloseList("finances", selectedTab)} id="finances-collapse">
+                        <ul class="list-unstyled fw-normal pb-1 small">
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Dashboard</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Connect Account</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Import Statement</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "planner")} aria-current="page" 
+                    <a href="#" 
+                    id="btn-planner-collapse" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#planner-collapse" 
+                    role="button"
+                    class={highlightTab(selectedTab, hoveringTab, "planner")} aria-current="page" 
                     onMouseEnter={(event) => {
                         setHoveringTab('planner')
                         setUpdatePage(true)
@@ -121,9 +143,23 @@ const SideBar = () => {
                     <svg class="bi me-2" width="16" height="16"></svg>
                     Planner
                     </a>
+                    
+                    <div class={autoCloseList("planner", selectedTab)} id="planner-collapse">
+                        <ul class="list-unstyled fw-normal pb-1 small">
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Overview</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Schedule Event</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Import Calendar</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Connect Account</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "contacts")} aria-current="page" 
+                    <a href="#" 
+                    id="btn-contacts-collapse" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#contacts-collapse"
+                    role="button"
+                    class={highlightTab(selectedTab, hoveringTab, "contacts")} aria-current="page" 
                     onMouseEnter={(event) => {
                         setHoveringTab('contacts')
                         setUpdatePage(true)
@@ -139,6 +175,43 @@ const SideBar = () => {
                     <svg class="bi me-2" width="16" height="16"></svg>
                     Contacts
                     </a>
+
+                    <div class={autoCloseList("contacts", selectedTab)} id="contacts-collapse">
+                        <ul class="list-unstyled fw-normal pb-1 small">
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Address Book</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Contact</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" 
+                    id="btn-notes-collapse" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#notes-collapse" 
+                    role="button"
+                    class={highlightTab(selectedTab, hoveringTab, "notes")} aria-current="page" 
+                    onMouseEnter={(event) => {
+                        setHoveringTab('notes')
+                        setUpdatePage(true)
+                    }}
+                    onMouseLeave={(event) => {
+                        setHoveringTab('none')
+                        setUpdatePage(true)
+                    }}
+                    onClick={(event) => {
+                        setSelectedTab('notes')
+                        setUpdatePage(true)
+                    }}>
+                    <svg class="bi me-2" width="16" height="16"></svg>
+                    Notes
+                    </a>
+                    
+                    <div class={autoCloseList("notes", selectedTab)} id="notes-collapse">
+                        <ul class="list-unstyled fw-normal pb-1 small">
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Overview</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Note</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
             <hr/>
