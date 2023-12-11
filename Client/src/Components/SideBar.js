@@ -51,9 +51,9 @@ const SideBar = () => {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "dashboard")} aria-current="page" 
+                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "notes")} aria-current="page" 
                     onMouseEnter={(event) => {
-                        setHoveringTab('dashboard')
+                        setHoveringTab('notes')
                         setUpdatePage(true)
                     }}
                     onMouseLeave={(event) => {
@@ -61,17 +61,17 @@ const SideBar = () => {
                         setUpdatePage(true)
                     }}
                     onClick={(event) => {
-                        setSelectedTab('dashboard')
+                        setSelectedTab('notes')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
-                    Dashboard
+                    Notes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "orders")} aria-current="page" 
+                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "projects")} aria-current="page" 
                     onMouseEnter={(event) => {
-                        setHoveringTab('orders')
+                        setHoveringTab('projects')
                         setUpdatePage(true)
                     }}
                     onMouseLeave={(event) => {
@@ -79,17 +79,17 @@ const SideBar = () => {
                         setUpdatePage(true)
                     }}
                     onClick={(event) => {
-                        setSelectedTab('orders')
+                        setSelectedTab('projects')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
-                    Orders
+                    Projects
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "products")} aria-current="page" 
+                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "finances")} aria-current="page" 
                     onMouseEnter={(event) => {
-                        setHoveringTab('products')
+                        setHoveringTab('finances')
                         setUpdatePage(true)
                     }}
                     onMouseLeave={(event) => {
@@ -97,17 +97,17 @@ const SideBar = () => {
                         setUpdatePage(true)
                     }}
                     onClick={(event) => {
-                        setSelectedTab('products')
+                        setSelectedTab('finances')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
-                    Products
+                    Finances
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "customers")} aria-current="page" 
+                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "planner")} aria-current="page" 
                     onMouseEnter={(event) => {
-                        setHoveringTab('customers')
+                        setHoveringTab('planner')
                         setUpdatePage(true)
                     }}
                     onMouseLeave={(event) => {
@@ -115,11 +115,29 @@ const SideBar = () => {
                         setUpdatePage(true)
                     }}
                     onClick={(event) => {
-                        setSelectedTab('customers')
+                        setSelectedTab('planner')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
-                    Customers
+                    Planner
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "contacts")} aria-current="page" 
+                    onMouseEnter={(event) => {
+                        setHoveringTab('contacts')
+                        setUpdatePage(true)
+                    }}
+                    onMouseLeave={(event) => {
+                        setHoveringTab('none')
+                        setUpdatePage(true)
+                    }}
+                    onClick={(event) => {
+                        setSelectedTab('contacts')
+                        setUpdatePage(true)
+                    }}>
+                    <svg class="bi me-2" width="16" height="16"></svg>
+                    Contacts
                     </a>
                 </li>
             </ul>
