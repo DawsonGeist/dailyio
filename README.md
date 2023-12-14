@@ -3,7 +3,9 @@ Personal Assistant application to help me remember Upcoming Responsibilities, Da
 
 Required Packages:
 Front End:
+react-router-dom
 bootstrap
+moment (Working with dates for the calendar component in Planner/Overview)
 
 Backend:
 express

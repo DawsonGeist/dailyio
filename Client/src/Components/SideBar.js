@@ -1,5 +1,5 @@
 import  react from 'react'
-import  {useState, useEffect} from 'react'
+import  {useState, useEffect, } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'; // Import Bootstrap CSS
 import 'bootstrap/dist/js/bootstrap.bundle'; // This fixed the issue with dropdowns?
 import '../styles.css'
@@ -42,7 +42,7 @@ const SideBar = () => {
             <hr/>
             <ul class="nav nav-pills flex-column mb-auto list-unstyled bg-dark ps-0">
                 <li class="nav-item">
-                    <a href="#" class={highlightTab(selectedTab, hoveringTab, "home")} aria-current="page" 
+                    <a href="/" class={highlightTab(selectedTab, hoveringTab, "home")} aria-current="page" 
                     onMouseEnter={(event) => {
                         setHoveringTab('home')
                         setUpdatePage(true)
@@ -146,7 +146,8 @@ const SideBar = () => {
                     
                     <div class={autoCloseList("planner", selectedTab)} id="planner-collapse">
                         <ul class="list-unstyled fw-normal pb-1 small">
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Overview</a></li>
+                            <li class="nav-item"><a href="/PlannerOverview" class="nav-link text-white" onClick={(event) => {
+                            }}>Overview</a></li>
                             <li class="nav-item"><a href="#" class="nav-link text-white">Schedule Event</a></li>
                             <li class="nav-item"><a href="#" class="nav-link text-white">Import Calendar</a></li>
                             <li class="nav-item"><a href="#" class="nav-link text-white">Connect Account</a></li>
