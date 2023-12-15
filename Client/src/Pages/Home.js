@@ -1,6 +1,6 @@
 import react from 'react'
-import 'bootstrap/dist/css/bootstrap.css'; // Import Bootstrap CSS
-import 'bootstrap/dist/js/bootstrap.bundle'; // This fixed the issue with dropdowns?
+//import 'bootstrap/dist/css/bootstrap.css'; // Import Bootstrap CSS
+//import 'bootstrap/dist/js/bootstrap.bundle'; // This fixed the issue with dropdowns?
 import '../styles.css'
 
 import NotesPreviewContainer from '../Components/NotesPreviewContainer';
