@@ -15,7 +15,7 @@ const sameDay = (dateA, dateB) => {
     return sameDay
 }
 
-const loadCalendar = (date, events, selectedDay, setSelectedDay) => {
+const loadCalendar = (date, events, selectedDay, setSelectedDay, setDate) => {
     const dayInTheMonth = date.getDate()
     var copiedEvents = [...events]
    
@@ -91,9 +91,30 @@ const loadCalendar = (date, events, selectedDay, setSelectedDay) => {
         tempEvents = []
     }
     return ( 
-        <div className='container border border-dark'>
+        <div className='container border border-dark' style={{paddingTop: "5px"}}>
             <div className='row text-center g-0'>
-                <h1>{calendarTitle}</h1>
+                <div className='col-3'>
+                    <button className='btn btn-primary' 
+                    onClick={(event) => {
+                        setDate(moment(date).subtract(1, 'month').toDate())
+                    }}>Previous Month</button>
+                </div>
+
+                <div className='col-6 d-flex justify-content-center'>
+                    <h1>{calendarTitle}</h1>
+                    <button className='btn btn-light' 
+                    onClick={(event) => {
+                        setDate(new Date())
+                        setSelectedDay(new Date())
+                    }}>Today</button>
+                </div>
+                
+                <div className='col-3'>
+                    <button className='btn btn-primary' 
+                    onClick={(event) => {
+                        setDate(moment(date).add(1, 'month').toDate())
+                    }}>Next Month</button>
+                </div>
             </div>
             <div className='row text-center g-0'>
                 <div className='col g-0'>
@@ -230,16 +251,7 @@ const Calendar = ({events}) => {
     // Column Headers go from Sunday to Saturday
     return (
         <div className='flex-container w-100 h-100'>
-            <>{loadCalendar(date, events, selectedDay, setSelectedDay)}</>
-            
-            <button className='btn btn-danger' 
-            onClick={(event) => {
-                setDate(moment(date).subtract(1, 'month').toDate())
-            }}>Previous Month</button>
-            <button className='btn btn-success' 
-            onClick={(event) => {
-                setDate(moment(date).add(1, 'month').toDate())
-            }}>Next Month</button>
+            <>{loadCalendar(date, events, selectedDay, setSelectedDay, setDate)}</>
         </div>
     );
 }
