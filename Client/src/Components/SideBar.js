@@ -79,13 +79,13 @@ const SideBar = () => {
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
-                    Projects
+                    Goals
                     </a>
                     
                     <div class={autoCloseList("projects", selectedTab)} id="projects-collapse">
                         <ul class="list-unstyled fw-normal pb-1 small">
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Overview</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Project</a></li>
+                            <li class="nav-item"><a href="/GoalsOverview" class="nav-link text-white">Overview</a></li>
+                            <li class="nav-item"><a href="/CreateGoal" class="nav-link text-white">Create Goal</a></li>
                             <li class="nav-item"><a href="#" class="nav-link text-white">Create Task</a></li>
                         </ul>
                     </div>
