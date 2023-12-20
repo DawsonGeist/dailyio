@@ -329,6 +329,7 @@ const GoalsOverview = () => {
     const [tasks, setTasks] = useState([])
     const [notes, setNotes] = useState({})
     const [events, setEvents] = useState([])
+    //Add completed boolean property
     const dummyGoals = [
         {
             id: 0,
@@ -345,7 +346,8 @@ const GoalsOverview = () => {
             title: "Social Life",
             description: "Investing in my social circle such that I am involved in the lives of people I care about"
         },
-        ]
+    ]
+    //Add completed boolean property
     const dummyTasks = [
         {
             id: 3,
