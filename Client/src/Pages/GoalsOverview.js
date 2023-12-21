@@ -335,16 +335,19 @@ const GoalsOverview = () => {
             id: 0,
             title: "Create Test App",
             description: "Create a test app with miscellanious and frankly unrelated features such that you can demonstrate working knowledge of bootstrap, react, and mongoDB",
+            endDate: new Date(),
         },
         {
             id: 1,
             title: "Internship Application",
             description: "We need to secure a summer intership for 2024 such that we continue to learn between semesters",
+            endDate: new Date(),
         },
         {
             id: 2,
             title: "Social Life",
-            description: "Investing in my social circle such that I am involved in the lives of people I care about"
+            description: "Investing in my social circle such that I am involved in the lives of people I care about",
+            endDate: new Date(),
         },
     ]
     //Add completed boolean property
@@ -457,7 +460,7 @@ const GoalsOverview = () => {
             id: 13,
             title: "Event A",
             startDate: new Date("December 14, 2023 11:00:00"),
-            endDate: new Date("December 15, 2023 14:10:00"),
+            endDate: new Date("December 14, 2023 14:10:00"),
         },
     ]
 

@@ -86,7 +86,7 @@ const SideBar = () => {
                         <ul class="list-unstyled fw-normal pb-1 small">
                             <li class="nav-item"><a href="/GoalsOverview" class="nav-link text-white">Overview</a></li>
                             <li class="nav-item"><a href="/CreateGoal" class="nav-link text-white">Create Goal</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Task</a></li>
+                            <li class="nav-item"><a href="/CreateTask" class="nav-link text-white">Create Task</a></li>
                         </ul>
                     </div>
                 </li>
