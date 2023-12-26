@@ -10,6 +10,7 @@ import PlannerOverview from './Pages/PlannerOverview';
 import GoalsOverview from './Pages/GoalsOverview';
 import CreateGoal from './Pages/CreateGoal';
 import CreateTask from './Pages/CreateTask';
+import CreateEvent from './Pages/CreateEvent';
 
 const GetPageContent = () => {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Route path='/GoalsOverview' element={<GoalsOverview/>}/>
       <Route path='/CreateGoal' element={<CreateGoal/>}/>
       <Route path='/CreateTask' element={<CreateTask/>}/>
+      <Route path='/CreateEvent' element={<CreateEvent/>}/>
     </Routes>
   );
 }

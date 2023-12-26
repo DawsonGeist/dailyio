@@ -157,7 +157,7 @@ const SideBar = () => {
                         <ul class="list-unstyled fw-normal pb-1 small">
                             <li class="nav-item"><a href="/PlannerOverview" class="nav-link text-white" onClick={(event) => {
                             }}>Overview</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Schedule Event</a></li>
+                            <li class="nav-item"><a href="/CreateEvent" class="nav-link text-white">Schedule Event</a></li>
                             <li class="nav-item"><a href="#" class="nav-link text-white">Import Calendar</a></li>
                             <li class="nav-item"><a href="#" class="nav-link text-white">Connect Account</a></li>
                         </ul>

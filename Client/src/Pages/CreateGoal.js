@@ -98,28 +98,39 @@ const CreateGoal = () => {
                     <div className='row'>
                         <div className='col-4'>
                             <label for="TextAreaGoalEndDate" className='form-label'>Estimated Completion Date</label>
-                            <DatePicker 
-                            className='form-control'
-                            id='TextAreaGoalEndDate'
-                            open={calendarOpen}
-                            placeholderText={"Select a time frame"}
-                            value={endDate == "" ? "" : `${endDate.getMonth()+1}/${endDate.getDate()}/${endDate.getFullYear()}`}
-                            startDate={null}
-                            scrollableYearDropdown
-                            showMonthDropdown
-                            showYearDropdown
-                            minDate={new Date()}
-                            onChange={(event) => {
-                                console.log(event)
-                                setEndDate(event)
-                                setCalendarOpen(false)
-                            }}
-                            onClickOutside={(event) => {
-                                console.log(event)
-                                if(event.target.id != "btn-ToggleCalendar")
+                            <div className="customDatePickerWidth">
+                                <DatePicker 
+                                className='form-control'
+                                id='TextAreaGoalEndDate'
+                                open={calendarOpen}
+                                placeholderText={"Select a time frame"}
+                                value={endDate == "" ? "" : `${endDate.getMonth()+1}/${endDate.getDate()}/${endDate.getFullYear()}`}
+                                startDate={null}
+                                scrollableYearDropdown
+                                showMonthDropdown
+                                showYearDropdown
+                                minDate={new Date()}
+                                onChange={(event) => {
+                                    console.log(event)
+                                    setEndDate(event)
                                     setCalendarOpen(false)
-                            }}
-                            />
+                                }}
+                                onClickOutside={(event) => {
+                                    console.log(event)
+                                    if(event.target.id != "btn-ToggleCalendar")
+                                        setCalendarOpen(false)
+                                }}
+                                />
+                            </div>
+                        </div>
+                        <div className='col-1 align-self-end'>
+                            <button className='btn btn-primary' 
+                            id="btn-ToggleCalendar"
+                            type='button'
+                            disabled={!calendarButtonEnabled}
+                            onClick={(event) => {
+                                setCalendarOpen(!calendarOpen)
+                            }}>Calendar</button>
                         </div>
                         <div className='col-4'>
                             <label for="SelectSuggestedEndDate" className='form-label'>Suggested Time Frame</label>
@@ -143,15 +154,6 @@ const CreateGoal = () => {
                                 <option value="5 Year">5 Years</option>
                                 <option value="custom">Custom</option>
                             </select>
-                        </div>
-                        <div className='col-4 align-self-end'>
-                            <button className='btn btn-primary' 
-                            id="btn-ToggleCalendar"
-                            type='button'
-                            disabled={!calendarButtonEnabled}
-                            onClick={(event) => {
-                                setCalendarOpen(!calendarOpen)
-                            }}>Calendar</button>
                         </div>
                     </div>
                     
