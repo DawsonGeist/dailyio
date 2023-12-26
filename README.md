@@ -7,6 +7,7 @@ react-router-dom
 bootstrap
 moment (Working with dates for the calendar component in Planner/Overview)
 axios
+react-datepicker
 
 Backend:
 express

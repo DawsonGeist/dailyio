@@ -14,16 +14,17 @@ const highlightTab = (selectedTab, hoveringTab, currentTabName) => {
 }
 
 const autoCloseList = (currentTab, selectedTab) => {
-    var collapse = `collapsing`
     if(currentTab == selectedTab) {
-        collapse = `${collapse} show`
+        return "collapse show"
     }
-    return collapse
+    else {
+        return "collapsing"
+    }
 }
 
 const SideBar = () => {
     const [hoveringTab, setHoveringTab] = useState('none')
-    const [selectedTab, setSelectedTab] = useState('home')
+    const [selectedTab, setSelectedTab] = useState(localStorage.getItem('selectedTab'))
     const [updatePage, setUpdatePage] = useState(true)
 
     useEffect(() => {
@@ -31,6 +32,10 @@ const SideBar = () => {
             //do something
             setUpdatePage(false)
         }
+    })
+    const openSelectedTabs = document.querySelectorAll(`#${localStorage.getItem('selectedTab')}-collapse`)
+    Array(openSelectedTabs).forEach((collapse) => {
+        collapse.classname = "collapse show"
     })
 
     return (
@@ -53,6 +58,7 @@ const SideBar = () => {
                     }}
                     onClick={(event) => {
                         setSelectedTab('home')
+                        localStorage.setItem('selectedTab', 'home')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
@@ -76,17 +82,18 @@ const SideBar = () => {
                     }}
                     onClick={(event) => {
                         setSelectedTab('projects')
+                        localStorage.setItem('selectedTab', 'projects')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
-                    Projects
+                    Goals
                     </a>
                     
                     <div class={autoCloseList("projects", selectedTab)} id="projects-collapse">
                         <ul class="list-unstyled fw-normal pb-1 small">
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Overview</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Project</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white">Create Task</a></li>
+                            <li class="nav-item"><a href="/GoalsOverview" class="nav-link text-white">Overview</a></li>
+                            <li class="nav-item"><a href="/CreateGoal" class="nav-link text-white">Create Goal</a></li>
+                            <li class="nav-item"><a href="/CreateTask" class="nav-link text-white">Create Task</a></li>
                         </ul>
                     </div>
                 </li>
@@ -107,6 +114,7 @@ const SideBar = () => {
                     }}
                     onClick={(event) => {
                         setSelectedTab('finances')
+                        localStorage.setItem('selectedTab', 'finances')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
@@ -138,13 +146,14 @@ const SideBar = () => {
                     }}
                     onClick={(event) => {
                         setSelectedTab('planner')
+                        localStorage.setItem('selectedTab', 'planner')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
                     Planner
                     </a>
                     
-                    <div class={autoCloseList("planner", selectedTab)} id="planner-collapse">
+                    <div class={(autoCloseList("planner", selectedTab))} id="planner-collapse">
                         <ul class="list-unstyled fw-normal pb-1 small">
                             <li class="nav-item"><a href="/PlannerOverview" class="nav-link text-white" onClick={(event) => {
                             }}>Overview</a></li>
@@ -171,6 +180,7 @@ const SideBar = () => {
                     }}
                     onClick={(event) => {
                         setSelectedTab('contacts')
+                        localStorage.setItem('selectedTab', 'contacts')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
@@ -201,6 +211,7 @@ const SideBar = () => {
                     }}
                     onClick={(event) => {
                         setSelectedTab('notes')
+                        localStorage.setItem('selectedTab', 'notes')
                         setUpdatePage(true)
                     }}>
                     <svg class="bi me-2" width="16" height="16"></svg>
